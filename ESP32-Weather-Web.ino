@@ -1,4 +1,3 @@
-// Importing necessary libraries
 #include <WiFi.h>
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
@@ -7,8 +6,8 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // Setting network credentials
-const char* ssid = "netis";
-const char* password = "wahas1122";
+const char* ssid = "SITE";
+const char* password = "Password";
 
 const char* input_parameter1 = "output";
 const char* input_parameter2 = "state";
@@ -62,12 +61,6 @@ String processor(const String& var){
   if(var == "BUTTONPLACEHOLDER"){
     String buttons = "";
     buttons += "<h4>Output - PIN 2</h4><label class=\"switch\"><input type=\"checkbox\" onchange=\"toggleCheckbox(this)\" id=\"2\" " + outputState(2) + "><span class=\"slider\"></span></label>";
-
-//    buttons += "<h4>Output - GPIO 25</h4><label class=\"switch\"><input type=\"checkbox\" onchange=\"toggleCheckbox(this)\" id=\"25\" " + outputState(25) + "><span class=\"slider\"></span></label>";
-//
-//    buttons += "<h4>Output - GPIO 27</h4><label class=\"switch\"><input type=\"checkbox\" onchange=\"toggleCheckbox(this)\" id=\"27\" " + outputState(27) + "><span class=\"slider\"></span></label>";
-
-//   buttons += "<h4>Output - GPIO 13</h4><label class=\"switch\"><input type=\"checkbox\" onchange=\"toggleCheckbox(this)\" id=\"13\" " + outputState(13) + "><span class=\"slider\"></span></label>";
 
     return buttons;
   }
@@ -163,20 +156,7 @@ void setup(){
       inputMessage1 = "No message sent";
       inputMessage2 = "No message sent";
     }
-//    Serial.print("GPIO: ");
-//    Serial.print(inputMessage1);
-//    Serial.print(" - Set to: ");
-//    Serial.println(inputMessage2);
-//  lcd.clear();
-//  lcd.setCursor(0,0);
-//  lcd.print("IP:");
-//  lcd.setCursor(3,0);
-//  lcd.print(WiFi.localIP());
-//          lcd.setCursor(0,1);
-//          lcd.print(inputMessage1);
-//          lcd.print(" -is ");
-//          lcd.print(inputMessage2);
-//          lcd.print("  ");
+
     if (inputMessage2 == "1")
       lcd.backlight(); // turn on backlight.
     else
